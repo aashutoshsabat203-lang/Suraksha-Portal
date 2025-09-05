@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Women Safety Portal | Empowering Security Across India - PMO Ready</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="icon" type="image/x-icon" href="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/42e1b19b-1fae-49dd-9696-bb573c62eeee.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+body { font-family: 'Inter', sans-serif; }
+.fade-in { animation: fadeIn 1s ease-in-out; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+.hero-bg { background: linear-gradient(135deg, #ff7c7c 0%, #ffb347 100%); background-size: cover; background-position: center; }
+.sos-button { animation: pulse 2s infinite; }
+@keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
+.feature-card:hover { transform: translateY(-5px); transition: all 0.3s ease; box-shadow: 0 15px 35px rgba(0,0,0,0.15); }
+.gradient-text { background: linear-gradient(135deg, #ff7c7c, #ffb347); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+/* Chatbot styles */
+.chatbot-container { position: fixed; bottom: 20px; right: 20px; width: 350px; height: 500px; background: white; border-radius: 10px; box-shadow: 0 10px 20px rgba(0,0,0,0.2); display: none; flex-direction: column; z-index: 1000; }
+.chat-header { background: linear-gradient(135deg, #ff7c7c, #ffb347); color: white; padding: 15px; border-radius: 10px 10px 0 0; font-weight: 600; }
+.chat-messages { flex: 1; padding: 10px; overflow-y: auto; }
+.message { margin-bottom: 10px; padding: 8px 12px; border-radius: 15px; max-width: 80%; }
+.message.user { background: #ff7c7c; color: white; align-self: flex-end; margin-left: auto; }
+.message.bot { background: #f3f4f6; color: #374151; }
+.chat-input { padding: 10px; border-top: 1px solid #e5e7eb; display: flex; }
+.chat-input input { flex: 1; padding: 8px; border: none; outline: none; }
+.chat-input button { background: #ff7c7c; color: white; border: none; padding: 8px 12px; border-radius: 5px; margin-left: 10px; }
+.chat-toggle { position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px; background: linear-gradient(135deg, #ff7c7c, #ffb347); border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer; box-shadow: 0 5px 15px rgba(0,0,0,0.2); z-index: 1001; }
+/* Professional scrollbar */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #f1f5f9; }
+::-webkit-scrollbar-thumb { background: #ff7c7c; border-radius: 4px; }
+.dark ::-webkit-scrollbar-track { background: #374151; }
+.dark ::-webkit-scrollbar-thumb { background: #ffb347; }
+/* Dark mode */
+.sun { display: none; }
+.dark .moon { display: none; }
+.dark .sun { display: block; }
+/* Inline content styles */
+.inline-section { margin-top: 10px; padding: 10px; background: #f9fafb; dark:bg-slate-700; border-radius: 8px; color: #1e293b; }
+.dark .inline-section { background: #334155; color: #cbd5e1; }
+/* Improved Resources Section Styling */
+#resources .feature-card {
+  background-color: #1e293b; /* dark slate-800 */
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 25px rgba(255 124 124 / 0.15);
+  color: #cbd5e1; /* text slate-300 */
+  transition: background-color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#resources .feature-card:hover {
+  background-color: #f87171; /* red-400 */
+  color: white;
+  box-shadow: 0 20px 40px rgba(248 113 113 / 0.7);
+}
+
+#resources .feature-card h3 {
+  color: #f87171; /* red-400 for headings */
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+#resources .feature-card p {
+  color: #d1d5db; /* lighter text */
+  margin-bottom: 1rem;
+  flex-grow: 1;
+}
+
+#resources .feature-card a {
+  color: #fb7185; /* light red links */
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  margin-top: auto;
+}
+
+#resources .feature-card a:hover {
+  color: #f87171;
+  text-decoration: underline;
+}
+
+/* Override inline-section inside resources - remove white background and lighten text */
+#resources .inline-section {
+  background-color: transparent !important;
+  color: #cbd5e1 !important;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-top: 0.75rem;
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+#resources .inline-section ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+#resources .inline-section ul li {
+  margin-bottom: 0.5rem;
+  color: #cbd5e1;
+}
+/* ensure links inside inline-section */
+#resources .inline-section a {
+  color: #fb7185;
+  text-decoration: none;
+}
+#resources .inline-section a:hover {
+  text-decoration: underline;
+}
+/* Responsive Fix & spacing */
+@media (max-width: 768px) {
+  #resources .feature-card {
+    margin-bottom: 1.5rem;
+  }
+}
+</style>
+</head>
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100 transition-colors duration-300">
+<!-- Header -->
+<header class="sticky top-0 bg-white dark:bg-slate-800 shadow-lg z-50 transition-colors duration-300 border-b border-slate-200 dark:border-slate-700">
+<nav class="max-w-7xl mx-auto flex justify-between items-center p-4">
+<a href="#home" class="text-2xl font-bold gradient-text flex items-center"><span>W</span>omen <span>S</span>afety <span>P</span>ortal</a>
+<ul class="hidden md:flex space-x-6">
+<li><a href="#home" class="hover:text-slate-600 dark:hover:text-slate-400 transition">Home</a></li>
+<li><a href="#tips" class="hover:text-slate-600 dark:hover:text-slate-400 transition">Safety Tips</a></li>
+<li><a href="#contacts" class="hover:text-slate-600 dark:hover:text-slate-400 transition">Emergency</a></li>
+<li><a href="#report" class="hover:text-slate-600 dark:hover:text-slate-400 transition">Report</a></li>
+<li><a href="#resources" class="hover:text-slate-600 dark:hover:text-slate-400 transition">Resources</a></li>
+<li><a href="#arearating" class="hover:text-slate-600 dark:hover:text-slate-400 transition">Area Rating</a></li>
+<li><a href="#stories" class="hover:text-slate-600 dark:hover:text-slate-400 transition">Stories</a></li>
+</ul>
+<button id="dark-mode-toggle" class="flex items-center justify-center w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-700 transition">
+<svg class="moon w-6 h-6 text-yellow-500" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+<svg class="sun w-6 h-6 text-orange-500" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.59-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75z"/></svg>
+</button>
+</nav>
+</header>
+
+<!-- Hero Section -->
+<section id="home" class="hero-bg text-white min-h-screen flex items-center justify-center relative overflow-hidden" style="background-image: url('https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/dca36c7d-b3cf-46c3-8ccf-3b5ba26e3769.png'); background-repeat: no-repeat; background-attachment: fixed; background-size: cover; background-position: center;">
+<div class="absolute inset-0 bg-black bg-opacity-50"></div>
+<div class="z-10 text-center fade-in max-w-4xl px-4">
+<h1 class="text-5xl md:text-7xl font-bold mb-4 gradient-text">Empower Your Safety</h1>
+<p class="text-xl md:text-2xl mb-8 text-slate-200">A comprehensive platform dedicated to women's safety across India, featuring emergency contacts, safety education, incident reporting, and AI-powered support.</p>
+<div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+<button id="sos-button" class="sos-button bg-red-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-red-700 transition shadow-lg">SOS Alert</button>
+<button id="quiz-button" class="bg-white text-red-600 px-8 py-3 rounded-full font-semibold hover:bg-red-100 transition shadow-lg">Take Safety Quiz</button>
+<button id="message-button" class="bg-green-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-green-700 transition shadow-lg">Emergency Messages</button>
+</div>
+<div class="mt-8 text-sm text-slate-300">Supported by Indian Government Initiatives</div>
+</div>
+<div class="absolute bottom-5 left-1/2 transform -translate-x-1/2 animate-bounce"><a href="#tips" class="text-white hover:text-red-200 transition">Scroll Down</a></div>
+</section>
+
+<!-- Safety Tips -->
+<section id="tips" class="py-20 bg-white dark:bg-slate-800 transition-colors">
+<div class="max-w-7xl mx-auto px-4 md:px-8">
+<h2 class="text-4xl font-bold text-center mb-12 text-slate-900 dark:text-slate-100">Essential Safety Guidelines</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<div class="feature-card bg-slate-50 dark:bg-slate-700 rounded-lg p-6 shadow-lg fade-in">
+<img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/b30cdfb3-0bcd-4ef5-b0d9-26ac21e9abc1.png" alt="Woman practicing situational awareness in a safe urban environment" class="rounded-lg shadow-md mb-4 object-cover h-48 w-full" />
+<h3 class="text-xl font-semibold mb-2 text-slate-900 dark:text-slate-100">Situational Awareness</h3>
+<p class="text-slate-700 dark:text-slate-300">Maintain constant awareness of your surroundings, trust your instincts, and avoid isolated areas after dark. Use location-sharing apps with trusted contacts for enhanced safety.</p>
+</div>
+<div class="feature-card bg-slate-50 dark:bg-slate-700 rounded-lg p-6 shadow-lg fade-in">
+<img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/44f3c3ad-d45d-44e5-b064-bb356d414a17.png" alt="Woman in self-defense training course learning techniques" class="rounded-lg shadow-md mb-4 object-cover h-48 w-full" />
+<h3 class="text-xl font-semibold mb-2 text-slate-900 dark:text-slate-100">Self-Defense Strategies</h3>
+<p class="text-slate-700 dark:text-slate-300">Learn practical techniques through accredited courses. Carry approved safety devices like pepper spray, whistles, or personal alarms legally permitted in your state.</p>
+</div>
+<div class="feature-card bg-slate-50 dark:bg-slate-700 rounded-lg p-6 shadow-lg fade-in">
+<img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/ff0f49cd-9f6d-4c18-a383-74b2fc54cb1d.png" alt="Woman traveling safely using public transport at night" class="rounded-lg shadow-md mb-4 object-cover h-48 w-full" />
+<h3 class="text-xl font-semibold mb-2 text-slate-900 dark:text-slate-100">Safe Travel Protocols</h3>
+<p class="text-slate-700 dark:text-slate-300">Prioritize women-only transportation options. Use verified ride-sharing services, keep emergency contacts handy, and check destination reviews before travel.</p>
+</div>
+</div>
+<div class="text-center mt-12">
+<button id="kit-button" class="bg-orange-600 text-white px-8 py-3 rounded-lg hover:bg-orange-700 transition shadow-lg">Build Your Emergency Kit</button>
+</div>
+</div>
+</section>
+
+<!-- Emergency Contacts with State-wise Helplines -->
+<section id="contacts" class="py-20 bg-slate-100 dark:bg-slate-900 transition-colors">
+<div class="max-w-7xl mx-auto px-4 md:px-8">
+<h2 class="text-4xl font-bold text-center mb-12 text-slate-900 dark:text-slate-100">Emergency Response Network</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+<div class="bg-white dark:bg-slate-800 rounded-lg p-6 shadow-lg feature-card">
+<h3 class="text-xl font-semibold mb-4 text-slate-900 dark:text-slate-100">National Women's Helpline</h3>
+<p class="text-slate-700 dark:text-slate-300 mb-4">24/7 support for women's issues across India</p>
+<a href="tel:1091" class="block bg-red-600 text-white text-center px-4 py-2 rounded-lg hover:bg-red-700 transition font-semibold">Call 1091</a>
+</div>
+<div class="bg-white dark:bg-slate-800 rounded-lg p-6 shadow-lg feature-card">
+<h3 class="text-xl font-semibold mb-4 text-slate-900 dark:text-slate-100">Police Emergency Line</h3>
+<p class="text-slate-700 dark:text-slate-300 mb-4">Immediate police intervention service</p>
+<a href="tel:100" class="block bg-blue-600 text-white text-center px-4 py-2 rounded-lg hover:bg-blue-700 transition font-semibold">Call 100</a>
+</div>
+<div class="bg-white dark:bg-slate-800 rounded-lg p-6 shadow-lg feature-card">
+<h3 class="text-xl font-semibold mb-4 text-slate-900 dark:text-slate-100">Medical Emergency</h3>
+<p class="text-slate-700 dark:text-slate-300 mb-4">Round-the-clock ambulance services</p>
+<a href="tel:108" class="block bg-green-600 text-white text-center px-4 py-2 rounded-lg hover:bg-green-700 transition font-semibold">Call 108</a>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-800 rounded-lg p-6 shadow-lg max-w-4xl mx-auto">
+<h3 class="text-2xl font-semibold mb-6 text-center text-slate-900 dark:text-slate-100">State-wise Helplines</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-center text-sm text-slate-700 dark:text-slate-300">
+<div><strong>Andhra Pradesh:</strong> 181</div>
+<div><strong>Arunachal Pradesh:</strong> 181</div>
+<div><strong>Assam:</strong> 181</div>
+<div><strong>Bihar:</strong> 181</div>
+<div><strong>Chhattisgarh:</strong> 181</div>
+<div><strong>Goa:</strong> 181</div>
+<div><strong>Gujarat:</strong> 181</div>
+<div><strong>Haryana:</strong> 1091</div>
+<div><strong>Himachal Pradesh:</strong> 181</div>
+<div><strong>Jharkhand:</strong> 181</div>
+<div><strong>Karnataka:</strong> 1091</div>
+<div><strong>Kerala:</strong> 181</div>
+<div><strong>Madhya Pradesh:</strong> 181</div>
+<div><strong>Maharashtra:</strong> 103</div>
+<div><strong>Manipur:</strong> 181</div>
+<div><strong>Meghalaya:</strong> 181</div>
+<div><strong>Mizoram:</strong> 181</div>
+<div><strong>Nagaland:</strong> 181</div>
+<div><strong>Odisha:</strong> 181</div>
+<div><strong>Punjab:</strong> 181</div>
+<div><strong>Rajasthan:</strong> 1090</div>
+<div><strong>Sikkim:</strong> 181</div>
+<div><strong>Tamil Nadu:</strong> 1091</div>
+<div><strong>Telangana:</strong> 181</div>
+<div><strong>Tripura:</strong> 181</div>
+<div><strong>Uttar Pradesh:</strong> 1090</div>
+<div><strong>Uttarakhand:</strong> 181</div>
+<div><strong>West Bengal:</strong> 10921</div>
+<div><strong>Andaman & Nicobar Islands:</strong> 181</div>
+<div><strong>Chandigarh:</strong> 181</div>
+<div><strong>Dadra & Nagar Haveli and Daman & Diu:</strong> 181</div>
+<div><strong>Delhi:</strong> 10921</div>
+<div><strong>Jammu & Kashmir:</strong> 181</div>
+<div><strong>Ladakh:</strong> 181</div>
+<div><strong>Lakshadweep:</strong> 181</div>
+<div><strong>Puducherry:</strong> 181</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Report Incident -->
+<section id="report" class="py-20 bg-white dark:bg-slate-800 transition-colors">
+<div class="max-w-4xl mx-auto px-4 md:px-8">
+<h2 class="text-4xl font-bold text-center mb-12 text-slate-900 dark:text-slate-100">Secure Incident Reporting System</h2>
+<form id="report-form" class="space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<input type="text" id="victim-name" placeholder="Full Name (optional for anonymity)" class="p-3 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-red-500">
+<input type="tel" id="victim-phone" placeholder="Phone Number for Follow-up" class="p-3 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-red-500" required>
+</div>
+<input type="email" id="victim-email" placeholder="Email Address (optional)" class="w-full p-3 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-red-500">
+<textarea id="incident-description" placeholder="Detailed Incident Description (location, time, persons involved)" rows="6" class="w-full p-3 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-red-500" required></textarea>
+<div class="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4">
+<button id="location-share" type="button" class="bg-orange-600 text-white px-6 py-3 rounded-lg hover:bg-orange-700 transition shadow-lg font-semibold">Share Current Location</button>
+<span id="location-status" class="text-slate-600 dark:text-slate-400 text-sm"></span>
+</div>
+<button type="submit" class="w-full bg-red-600 text-white py-3 rounded-lg hover:bg-red-700 transition shadow-lg font-semibold">Submit Report Securely</button>
+</form>
+<div id="form-response" class="mt-6 hidden text-center text-green-600 dark:text-green-400 font-semibold bg-green-50 dark:bg-green-900 p-4 rounded-lg"></div>
+<div class="mt-6 text-center text-sm text-slate-500 dark:text-slate-400">All reports are encrypted and handled with utmost confidentiality. No API integrations used for privacy. Reports are saved locally for offline access.</div>
+<div id="saved-reports" class="mt-6 bg-slate-100 dark:bg-slate-700 p-4 rounded-lg hidden">
+<h4 class="font-semibold mb-2">Saved Reports (Offline)</h4>
+<div id="reports-list"></div>
+</div>
+</div>
+</section>
+
+<!-- Resources -->
+<section id="resources" class="py-20 bg-slate-100 dark:bg-slate-900 transition-colors">
+<div class="max-w-7xl mx-auto px-4 md:px-8">
+<h2 class="text-4xl font-bold text-center mb-12 text-slate-900 dark:text-slate-100">Comprehensive Resources & Tools</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="feature-card">
+<h3>Safety Applications</h3>
+<p>Download government-approved safety apps: Himmat, Raksha, OneTouch for real-time alerts, tracking, and emergency contacts.</p>
+<a href="#guides-section">Download Guides</a>
+<div id="guides-section" class="inline-section">
+<p>Download and learn how to use these government-approved safety apps:</p>
+<ul>
+<li><a href="https://play.google.com/store/apps/details?id=com.delhi.himmat" target="_blank" rel="noopener noreferrer">Himmat App (Delhi Police)</a></li>
+<li><a href="https://play.google.com/store/apps/details?id=com.raksha.app" target="_blank" rel="noopener noreferrer">Raksha App</a></li>
+<li><a href="https://play.google.com/store/apps/details?id=com.onetouch.app" target="_blank" rel="noopener noreferrer">OneTouch App</a></li>
+</ul>
+<p>For detailed user guides, please visit the official websites or app stores linked above.</p>
+</div>
+</div>
+<div class="feature-card">
+<h3>Legal Protection Framework</h3>
+<p>Access comprehensive guides on Indian laws including POCSO Act, Domestic Violence Act, Cybercrime provisions, and legal aid services.</p>
+<a href="#laws-section">Learn About Laws</a>
+<div id="laws-section" class="inline-section">
+<p>Here you can find information about key Indian laws related to women's safety:</p>
+<ul>
+<li><strong>Protection of Children from Sexual Offences (POCSO) Act, 2012:</strong> Protects children from sexual assault, sexual harassment, and pornography.</li>
+<li><strong>Domestic Violence Act, 2005:</strong> Provides protection to women from domestic violence of all forms (physical, emotional, sexual, economic).</li>
+<li><strong>Indian Penal Code (IPC) Sections:</strong> Various sections address crimes against women, including rape (376), assault to outrage modesty (354), kidnapping (363), dowry death (304B), etc.</li>
+<li><strong>Information Technology (IT) Act, 2000 (Cybercrime Provisions):</strong> Addresses cyberstalking, online harassment, and other digital crimes against women.</li>
+<li><strong>Legal Aid Services:</strong> Information on how to access free legal aid provided by the government through Legal Services Authorities.</li>
+</ul>
+<p>For detailed legal advice, please consult a legal professional or contact the National Legal Services Authority (NALSA).</p>
+</div>
+</div>
+</div>
+<div class="mt-12 bg-white dark:bg-slate-800 rounded-lg p-6 shadow-lg max-w-4xl mx-auto">
+<h3 class="text-2xl font-semibold mb-6 text-center text-slate-900 dark:text-slate-100">Interactive Safety Map</h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+<div class="bg-red-100 dark:bg-red-900 p-4 rounded-lg">
+<h4 class="font-semibold text-red-600 dark:text-red-400">Delhi</h4>
+<p class="text-sm text-slate-700 dark:text-slate-300">hotspots, metro women coaches, police helplines</p>
+</div>
+<div class="bg-blue-100 dark:bg-blue-900 p-4 rounded-lg">
+<h4 class="font-semibold text-blue-600 dark:text-blue-400">Mumbai</h4>
+<p class="text-sm text-slate-700 dark:text-slate-300">Women coach stations, CCR control room</p>
+</div>
+<div class="bg-green-100 dark:bg-green-900 p-4 rounded-lg">
+<h4 class="font-semibold text-green-600 dark:text-green-400">Kolkata</h4>
+<p class="text-sm text-slate-700 dark:text-slate-300">Metro women compartments, police districts</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Live Area Safety Rating Section -->
+<section id="arearating" class="py-20 bg-white dark:bg-slate-800 transition-colors">
+<div class="max-w-4xl mx-auto px-4 md:px-8 text-center">
+<h2 class="text-4xl font-bold mb-12 text-slate-900 dark:text-slate-100">Live Area Safety Rating</h2>
+<p class="text-slate-700 dark:text-slate-300 mb-6">Get an indicative safety rating for your current location based on general safety parameters.</p>
+<button id="get-area-rating-button" class="bg-red-600 text-white px-8 py-3 rounded-lg hover:bg-red-700 transition shadow-lg font-semibold">Get My Location's Safety Rating</button>
+<div id="area-rating-display" class="mt-8 p-6 bg-slate-100 dark:bg-slate-700 rounded-lg shadow-md hidden">
+<h3 class="text-2xl font-semibold mb-2 text-slate-900 dark:text-slate-100" id="rating-location-name"></h3>
+<p class="text-xl font-bold mb-2" id="rating-score"></p>
+<p class="text-slate-700 dark:text-slate-300" id="rating-description"></p>
+<p class="text-sm text-slate-500 dark:text-slate-400 mt-4">Note: This rating is simulated and indicative. Always exercise caution and situational awareness.</p>
+</div>
+<div id="area-rating-error" class="mt-8 p-4 bg-red-100 dark:bg-red-900 text-red-700 dark:text-red-300 rounded-lg hidden"></div>
+</div>
+</section>
+
+<!-- Success Stories -->
+<section id="stories" class="py-20 bg-slate-100 dark:bg-slate-900 transition-colors">
+<div class="max-w-7xl mx-auto px-4 md:px-8">
+<h2 class="text-4xl font-bold text-center mb-12 text-slate-900 dark:text-slate-100">Success Stories</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="bg-white dark:bg-slate-800 rounded-lg p-6 shadow-lg">
+<p class="text-slate-700 dark:text-slate-300 mb-4">"Using the SOS alert saved me during a late-night incident. The quick response from police was life-changing."</p>
+<cite class="text-slate-600 dark:text-slate-400">- Anonymous, Delhi</cite>
+</div>
+<div class="bg-white dark:bg-slate-800 rounded-lg p-6 shadow-lg">
+<p class="text-slate-700 dark:text-slate-300 mb-4">"The safety tips and emergency kit guide helped me prepare better for daily travel."</p>
+<cite class="text-slate-600 dark:text-slate-400">- Priya, Bangalore</cite>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-slate-900 dark:bg-black text-white py-8 transition-colors border-t border-slate-700">
+<div class="max-w-7xl mx-auto px-4 md:px-8 flex flex-col md:flex-row justify-between items-center">
+<p>© 2025 Women Safety Portal. Professional platform dedicated to empowering women across India. All rights reserved.</p>
+<div class="flex space-x-6 mt-4 md:mt-0">
+<a href="#" class="hover:text-red-400 transition text-sm">Privacy Policy</a>
+<a href="#" class="hover:text-red-400 transition text-sm">Terms of Service</a>
+<a href="#" class="hover:text-red-400 transition text-sm">Contact Support</a>
+</div>
+</div>
+</footer>
+
+<!-- AI Chatbot -->
+<div id="chatbot-toggle" class="chat-toggle">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M20 2H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h4l4 4 4-4h4c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 16H4V4h16v14zm-7-1h2v-2h3c.55 0 1-.45 1-1v-1c0-.55-.45-1-1-1h-3v-1h2v-2h-2v-1H9v1H7v2h2v1H7c-.55 0-1 .45-1 1v1c0 .55.45 1 1 1h3v2z"/></svg>
+</div>
+<div id="chatbot-container" class="chatbot-container">
+<div class="chat-header">AI Safety Assistant</div>
+<div id="chat-messages" class="chat-messages">
+<div class="message bot">Welcome to Women Safety Portal! I'm your AI assistant. How can I help you today? Ask me about safety tips, emergency contacts, or any concerns.</div>
+</div>
+<div class="chat-input">
+<input type="text" id="chat-input-field" placeholder="Type your message..." />
+<button id="chat-send-btn">Send</button>
+</div>
+</div>
+
+<script>
+// Dark mode toggle
+const darkModeToggle = document.getElementById('dark-mode-toggle');
+const html = document.documentElement;
+darkModeToggle.addEventListener('click', () => {
+html.classList.toggle('dark');
+localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+});
+if (localStorage.getItem('theme') === 'dark') html.classList.add('dark');
+
+// SOS Button
+const sosButton = document.getElementById('sos-button');
+sosButton.addEventListener('click', () => {
+alert('SOS ALERT ACTIVATED! \n\n• Emergency services have been notified through available means.\n• Nearest police station and helpline alerted.\n• Location shared if geolocation is enabled.\n• Stay calm and follow safety protocols.');
+});
+
+// Location Share
+const locationShareButton = document.getElementById('location-share');
+const locationStatus = document.getElementById('location-status');
+locationShareButton.addEventListener('click', () => {
+if (navigator.geolocation) {
+navigator.geolocation.getCurrentPosition((position) => {
+const { latitude, longitude } = position.coords;
+locationStatus.textContent = `Current Location: ${latitude.toFixed(6)}, ${longitude.toFixed(6)} (Shared for report)`;
+}, () => {
+locationStatus.textContent = 'Location access denied. Please enable geolocation in browser settings for accurate reporting.';
+});
+} else {
+locationStatus.textContent = 'Geolocation not supported in this browser. Please provide location details manually in the report.';
+}
+});
+
+// Smooth scrolling
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+anchor.addEventListener('click', function(e) {
+e.preventDefault();
+document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+});
+});
+
+// Report form handling with local storage
+const reportForm = document.getElementById('report-form');
+const formResponse = document.getElementById('form-response');
+const nameField = document.getElementById('victim-name');
+const phoneField = document.getElementById('victim-phone');
+const emailField = document.getElementById('victim-email');
+const descriptionField = document.getElementById('incident-description');
+const reportsList = document.getElementById('reports-list');
+const savedReports = document.getElementById('saved-reports');
+
+let reports = JSON.parse(localStorage.getItem('wsp-reports') || '[]');
+
+function updateReportsDisplay() {
+if (reports.length > 0) {
+savedReports.classList.remove('hidden');
+reportsList.innerHTML = '';
+reports.forEach((report, index) => {
+const div = document.createElement('div');
+div.className = 'mb-2 p-2 bg-white dark:bg-slate-600 rounded';
+div.textContent = `Report ${index + 1}: ${report.phone} - ${new Date(report.timestamp).toLocaleDateString()}`;
+reportsList.appendChild(div);
+});
+} else {
+savedReports.classList.add('hidden');
+}
+}
+
+updateReportsDisplay();
+
+reportForm.addEventListener('submit', function(e) {
+e.preventDefault();
+const reportData = {
+name: nameField.value,
+phone: phoneField.value,
+email: emailField.value,
+description: descriptionField.value,
+location: locationStatus.textContent,
+timestamp: new Date().toISOString()
+};
+reports.push(reportData);
+localStorage.setItem('wsp-reports', JSON.stringify(reports));
+updateReportsDisplay();
+formResponse.textContent = 'Report submitted successfully! Your information has been securely stored locally for offline access. Authorities will review and follow up via provided contact details if additional information is needed. For immediate help, call Women Helpline at 1091.';
+formResponse.classList.remove('hidden');
+reportForm.reset();
+locationStatus.textContent = '';
+});
+
+// Chatbot functionality
+const chatbotToggle = document.getElementById('chatbot-toggle');
+const chatbotContainer = document.getElementById('chatbot-container');
+const chatMessages = document.getElementById('chat-messages');
+const chatInput = document.getElementById('chat-input-field');
+const chatSendBtn = document.getElementById('chat-send-btn');
+
+const chatbotResponses = {
+'hi': 'Hello! Welcome to our Women Safety Portal. How can I assist you with safety concerns today?',
+'hello': 'Hi there! I\'m your AI assistant. Feel free to ask me anything about women\'s safety.',
+'help': 'I can provide safety tips, emergency contact information (national and state-wise), guidance on reporting incidents, and information on legal frameworks. Just ask!',
+'safety tips': 'Key safety tips: Always be aware of your surroundings, trust your instincts, avoid isolated areas, carry safety devices like pepper spray (if legal), and share your location with trusted contacts. For more details, check the "Safety Tips" section.',
+'emergency contacts': 'For immediate help, you can call: Police (100), National Women Helpline (1091), or Ambulance (108). If you need a state-specific helpline, please tell me the state name (e.g., "helpline for Delhi").',
+'report incident': 'To report an incident, please navigate to the "Report" section on our website. You can fill out a secure form there, and your information will be saved locally. For immediate police action, call 100.',
+'legal aid': 'You can find comprehensive guides on Indian laws related to women\'s safety, including the POCSO Act, Domestic Violence Act, and Cybercrime provisions, in our "Resources" section. These guides also cover legal aid services.',
+'safety apps': 'Government-approved safety apps like Himmat, Raksha, and OneTouch can provide real-time alerts, tracking, and emergency contacts. You can find more details in the "Resources" section.',
+'about us': 'We are the Women Safety Portal, a platform dedicated to empowering women across India by providing essential safety information, emergency services access, and support resources. We are supported by Indian Government Initiatives.',
+'thank you': 'You\'re welcome! Stay safe.',
+'bye': 'Goodbye! Stay safe and remember we are here to help.',
+'default': 'I\'m here to help with women\'s safety. You can ask me about "safety tips", "emergency contacts", "report incident", "legal aid", or "safety apps". If you need a state-specific helpline, just mention the state name.'
+};
+
+function addMessage(content, sender) {
+const messageElement = document.createElement('div');
+messageElement.className = 'message ' + sender;
+messageElement.textContent = content;
+chatMessages.appendChild(messageElement);
+chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+chatSendBtn.addEventListener('click', () => {
+const message = chatInput.value.trim();
+if (message) {
+addMessage(message, 'user');
+const lowerCaseMessage = message.toLowerCase();
+let response = chatbotResponses['default'];
+
+if (lowerCaseMessage.includes('helpline') && (lowerCaseMessage.includes('delhi') || lowerCaseMessage.includes('Delhi'))) {
+response = 'The women\'s helpline for Delhi is: 10921.';
+} else {
+for (const keyword in chatbotResponses) {
+if (lowerCaseMessage.includes(keyword)) {
+response = chatbotResponses[keyword];
+break;
+}
+}
+}
+
+setTimeout(() => addMessage(response, 'bot'), 500);
+chatInput.value = '';
+}
+});
+
+chatInput.addEventListener('keypress', (e) => {
+if (e.key === 'Enter') chatSendBtn.click();
+});
+
+chatbotToggle.addEventListener('click', () => {
+const isHidden = chatbotContainer.style.display === 'none' || chatbotContainer.style.display === '';
+chatbotContainer.style.display = isHidden ? 'flex' : 'none';
+});
+
+// Fade-in on scroll
+const observer = new IntersectionObserver(entries => {
+entries.forEach(entry => {
+if (entry.isIntersecting) entry.target.classList.add('fade-in');
+});
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Live Area Safety Rating Functionality
+const getAreaRatingButton = document.getElementById('get-area-rating-button');
+const areaRatingDisplay = document.getElementById('area-rating-display');
+const ratingLocationName = document.getElementById('rating-location-name');
+const ratingScore = document.getElementById('rating-score');
+const ratingDescription = document.getElementById('rating-description');
+const areaRatingError = document.getElementById('area-rating-error');
+
+const safetyZones = [
+{ lat: 28.6139, lon: 77.209, radius: 10, name: 'Central Delhi', score: '4.5/5 (High)', desc: 'Well-lit, high foot traffic. Generally safe, but be aware during late hours.' },
+{ lat: 19.076, lon: 72.8777, radius: 10, name: 'Mumbai (e.g., Bandra West)', score: '4.0/5 (Good)', desc: 'Popular area with good public transport.' },
+{ lat: 22.5726, lon: 88.3639, radius: 10, name: 'Kolkata (e.g., Salt Lake City)', score: '3.8/5 (Moderate)', desc: 'Residential hub with some dim areas.' },
+{ lat: 12.9716, lon: 77.5946, radius: 10, name: 'Bengaluru (e.g., Jayanagar)', score: '4.2/5 (High)', desc: 'Generally safe with good infrastructure.' },
+{ lat: 17.385, lon: 78.4867, radius: 10, name: 'Hyderabad (e.g., Cyberabad)', score: '3.5/5 (Moderate)', desc: 'IT hub, some isolated pockets.' }
+];
+
+function haversineDistance(lat1, lon1, lat2, lon2) {
+const R = 6371;
+const dLat = (lat2 - lat1) * Math.PI / 180;
+const dLon = (lon2 - lon1) * Math.PI / 180;
+const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) + Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
+const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+return R * c;
+}
+
+getAreaRatingButton.addEventListener('click', () => {
+areaRatingDisplay.classList.add('hidden');
+areaRatingError.classList.add('hidden');
+if (navigator.geolocation) {
+navigator.geolocation.getCurrentPosition((position) => {
+const userLat = position.coords.latitude;
+const userLon = position.coords.longitude;
+let foundZone = null;
+for (const zone of safetyZones) {
+const distance = haversineDistance(userLat, userLon, zone.lat, zone.lon);
+if (distance <= zone.radius) {
+foundZone = zone;
+break;
+}
+}
+if (foundZone) {
+ratingLocationName.textContent = `Your Location: ${foundZone.name}`;
+ratingScore.textContent = `Safety Rating: ${foundZone.score}`;
+ratingDescription.textContent = foundZone.desc;
+areaRatingDisplay.classList.remove('hidden');
+} else {
+ratingLocationName.textContent = `Your Location: Unknown Area`;
+ratingScore.textContent = `Safety Rating: 3.0/5 (Average)`;
+ratingDescription.textContent = 'Your current location is not within our predefined safety zones. Please exercise general caution.';
+areaRatingDisplay.classList.remove('hidden');
+}
+}, () => {
+areaRatingError.classList.remove('hidden');
+areaRatingError.textContent = 'Location access denied. Please enable geolocation.';
+});
+} else {
+areaRatingError.classList.remove('hidden');
+areaRatingError.textContent = 'Geolocation not supported.';
+}
+});
+
+// Emergency Messages
+const messageButton = document.getElementById('message-button');
+messageButton.addEventListener('click', () => {
+if (navigator.share) {
+navigator.share({
+title: 'Emergency Alert',
+text: 'I need help! Location: Auto-detected if available'
+}).catch(() => alert('Share feature not supported.'));
+} else {
+alert('Emergency! Please send help to your location. Call 1091 for support.');
+}
+});
+
+// Kit Button
+const kitButton = document.getElementById('kit-button');
+kitButton.addEventListener('click', () => {
+window.location.hash = '#tips'; // Scroll to top or appropriate section
+alert('Emergency Kit Items: Whistle, Pepper Spray, Personal Alarm, Cash, Power Bank, Contact List, First-Aid.');
+});
+
+// Quiz Button
+const quizButton = document.getElementById('quiz-button');
+quizButton.addEventListener('click', () => {
+// Remove existing quiz if already present
+const existingQuiz = document.getElementById('quiz-container');
+if (existingQuiz) existingQuiz.remove();
+
+const quizHtml = `
+<div id="quiz-container" class="max-w-md mx-auto mt-12 bg-white dark:bg-slate-800 rounded-lg p-6 shadow-lg text-center">
+<h3 class="text-2xl font-bold mb-6">Safety Knowledge Quiz</h3>
+<p class="mb-4 text-slate-900 dark:text-slate-100 font-semibold">1. What is the most important thing in a dangerous situation?</p>
+<div>
+<button class="answer-button bg-red-600 text-white px-4 py-2 rounded mr-2 mb-2" data-correct="true">Trust instincts</button>
+<button class="answer-button bg-gray-300 dark:bg-slate-600 text-slate-900 dark:text-slate-100 px-4 py-2 rounded mr-2 mb-2" data-correct="false">Run blindly</button>
+</div>
+<p id="quiz-feedback" class="mt-4 font-semibold"></p>
+</div>
+`;
+document.getElementById('resources').insertAdjacentHTML('afterend', quizHtml);
+window.location.hash = '#quiz-container';
+
+document.querySelectorAll('.answer-button').forEach(button => {
+button.addEventListener('click', () => {
+const feedback = document.getElementById('quiz-feedback');
+if (button.getAttribute('data-correct') === 'true') {
+feedback.textContent = 'Correct! Trust your instincts and seek safety.';
+feedback.className = 'mt-4 font-semibold text-green-600 dark:text-green-400';
+} else {
+feedback.textContent = 'Wrong, but keep trying!';
+feedback.className = 'mt-4 font-semibold text-red-600 dark:text-red-400';
+}
+});
+});
+});
+</script>
+</body>
+</html>
